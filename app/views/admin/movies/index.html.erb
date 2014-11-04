@@ -1,10 +1,10 @@
-<%= link_to('Add a new movie', new_admin_movie_path) %>
-
-<table border="1" width="100%">
+<%= link_to('Add a new movie', new_admin_movie_path, class: 'btn btn-info') %>
+<hr>
+<table class="table">
   <tr>
     <td>Title</td>
     <td>Describe</td>
-    <td>Actions</td>
+    <td width="200">Actions</td>
   </tr>
   <% if @movies.empty? %>
   <tr>
@@ -16,8 +16,8 @@
       <td><%= movie.title %></td>
       <td><%= movie.describe %></td>
       <td>
-        <%= link_to('Delete', admin_movie_path(movie), method: :delete) %>
-        <%= link_to('Edit', edit_admin_movie_path(movie)) %>
+        <%= link_to('Edit', edit_admin_movie_path(movie), class: 'btn btn-default') %>
+        <%= link_to('Delete', admin_movie_path(movie), method: :delete, class: 'btn btn-danger') %>
       </td>
     </tr>
   <% end %>

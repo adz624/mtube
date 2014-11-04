@@ -7,10 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= link_to('管理電影', admin_movies_path) %>
-<hr>
-<%= yield %>
-
+<div class="container">
+  <%= render 'common/header' %>
+  <%= yield %>
+</div>
 </body>
 </html>
