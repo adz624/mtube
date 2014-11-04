@@ -1,0 +1,11 @@
+<%= form_for([:admin, @movie]) do |f| %>
+  Title: 
+  <%= f.text_field :title %>
+  <br>
+
+  Describe:
+  <%= f.text_field :describe %>
+
+  <br>
+  <%= f.submit :save %>
+<% end %>
