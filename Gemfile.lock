@@ -34,6 +34,7 @@ GEM
       bootstrap-sass (~> 3.1.0.0)
       railties (>= 3.2.0)
       sass-rails (>= 3.2.0)
+    bootstrap_form (2.2.0)
     builder (3.2.2)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -115,6 +116,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass-rails
+  bootstrap_form
   coffee-rails (~> 4.0.0)
   jbuilder (~> 2.0)
   jquery-rails

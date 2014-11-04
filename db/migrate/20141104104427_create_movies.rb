@@ -5,6 +5,7 @@ class CreateMovies < ActiveRecord::Migration
       t.text :describe
       t.string :source, default: ''
       t.string :image
+      t.boolean :published, default: false
       t.timestamps
     end
   end

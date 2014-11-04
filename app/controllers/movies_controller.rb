@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
 
   # GET /movies
   def index
-    @movies = Movie.all
+    @movies = Movie.where(published: true)
   end
 
   # GET /movies/1
