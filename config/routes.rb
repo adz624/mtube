@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :movies, only: [:index, :show] do
-    post :like, on: :member
+    resource :like, only: [:create, :destroy], module: :movie
   end
 
   namespace :admin do
