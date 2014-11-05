@@ -6,6 +6,7 @@ class CreateMovies < ActiveRecord::Migration
       t.string :source, default: ''
       t.string :image
       t.boolean :published, default: false
+      t.integer :likes, default: 0
       t.timestamps
     end
   end
