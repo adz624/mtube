@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20141104104427) do
     t.string   "source",     default: ""
     t.boolean  "published",  default: false
     t.integer  "likes",      default: 0
+    t.integer  "dislikes",   default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

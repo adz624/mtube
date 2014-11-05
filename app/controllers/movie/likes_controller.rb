@@ -7,7 +7,7 @@ class Movie::LikesController < ApplicationController
 
   # DELETE /movies/1/like
   def destroy
-    Movie.decrement_counter(:likes, params[:movie_id])
+    Movie.decrement_counter(:dislikes, params[:movie_id])
     redirect_to :back
   end
 end
