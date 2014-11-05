@@ -1,0 +1,27 @@
+<h1>Hello, Movie</h1>
+
+<table class="table">
+  <tr>
+    <td>Title</td>
+    <td>Describe</td>
+    <td>Like</td>
+  </tr>
+  <% if @movies.empty? %>
+  <tr>
+    <td colspan="3">No Data!</td>
+  </tr>
+  <% end %>
+  <% @movies.each do |movie| %>
+    <tr>
+      <td>
+      <%= link_to(movie.title, movie_path(movie)) %>
+      <td><%= movie.describe %></td>
+
+      <td>
+        <%= movie.likes %>
+        <%= link_to('Like', movie_like_path(movie), method: :post) %>
+        <%= link_to('Unlike', movie_like_path(movie), method: :delete) %>
+      </td>
+    </tr>
+  <% end %>
+</table>

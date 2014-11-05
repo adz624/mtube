@@ -1,0 +1,32 @@
+<%= link_to('Add a new movie', new_admin_movie_path, class: 'btn btn-info') %>
+<hr>
+<table class="table">
+  <tr>
+    <td>Title</td>
+    <td>Describe</td>
+    <td>Published</td>
+    <td width="200">Actions</td>
+  </tr>
+  <% if @movies.empty? %>
+  <tr>
+    <td colspan="3">No Data!</td>
+  </tr>
+  <% end %>
+  <% @movies.each do |movie| %>
+    <tr>
+      <td><%= movie.title %></td>
+      <td><%= movie.describe %></td>
+      <td>
+        <% if movie.published? %>
+          yes
+        <% else %>
+          no
+        <% end %>
+      </td>
+      <td>
+        <%= link_to('Edit', like_movie_path(movie), class: 'btn btn-default') %>
+        <%= link_to('Delete', like_movie_path(movie), method: :delete, class: 'btn btn-danger') %>
+      </td>
+    </tr>
+  <% end %>
+</table>

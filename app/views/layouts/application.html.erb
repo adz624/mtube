@@ -7,8 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
+  <%= render 'common/header' %>
+  <%= yield %>
+  <div class="row">
+    <div class="col-lg-10 col-lg-offset-1 col-md-8 col-md-offset-2 col-sm-12 col-xs-12" style="background: black;">111</div>
+  </div>
 
-<%= yield %>
-
+  <%= link_to('aaa', xxxx, data: { method: :delete, confirm: 'xxx' } ) %>
+  <%= link_to('aaa', posts_path(format: :js), remote: true,method: :delete, confirm: 'xxxx' ) %>
+</div>
 </body>
 </html>
