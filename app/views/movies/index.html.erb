@@ -1,27 +1,18 @@
 <h1>Hello, Movie</h1>
-
-<table class="table">
-  <tr>
-    <td>Title</td>
-    <td>Describe</td>
-    <td>Like</td>
-  </tr>
-  <% if @movies.empty? %>
-  <tr>
-    <td colspan="3">No Data!</td>
-  </tr>
+<% if @movies.empty? %>
+  <div class="alert alert-danger">No Data!</div>
+<% end %>
+<div class="row">
+  <% @movies.in_groups_of(4, false).each do |movies| %>
+    <% movies.each do |movie| %>
+      <div class="col-md-3">
+        <h4><%= link_to(movie.title, movie_path(movie)) %></h4>
+        <%= image_tag(movie.image.url(:thumb)) %>
+        <p><%= truncate(movie.describe, length: 100) %></p>
+        <%= link_to("Like #{movie.likes}", movie_like_path(movie), method: :post, class: 'btn btn-default btn-xs') %>
+        <%= link_to("Unlike #{movie.likes}", movie_like_path(movie), method: :delete, class: 'btn btn-default btn-xs') %>
+      </div>
+    <% end %>
+    <div class="clearfix"></div>
   <% end %>
-  <% @movies.each do |movie| %>
-    <tr>
-      <td>
-      <%= link_to(movie.title, movie_path(movie)) %>
-      <td><%= movie.describe %></td>
-
-      <td>
-        <%= movie.likes %>
-        <%= link_to('Like', movie_like_path(movie), method: :post) %>
-        <%= link_to('Unlike', movie_like_path(movie), method: :delete) %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+</div>

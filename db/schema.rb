@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(version: 20141104104427) do
 
   create_table "movies", force: true do |t|
     t.string   "title",      default: ""
+    t.string   "image"
     t.text     "describe"
     t.string   "source",     default: ""
-    t.string   "image"
     t.boolean  "published",  default: false
     t.integer  "likes",      default: 0
     t.datetime "created_at"
