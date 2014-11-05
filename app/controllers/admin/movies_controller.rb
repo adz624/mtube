@@ -1,51 +1,53 @@
-class Admin::MoviesController < ApplicationController
-  before_action :set_movie, only: [:show, :edit, :update, :destroy]
+module Admin
+  class MoviesController < ApplicationController
+    before_action :set_movie, only: [:show, :edit, :update, :destroy]
 
-  # GET /admin/movies
-  def index
-    @movies = Movie.all
-  end
-
-  # GET /admin/movies/new
-  def new
-    @movie = Movie.new
-  end
-
-  # POST /admin/movies
-  def create
-    @movie = Movie.new(movie_params)
-    if @movie.save
-      redirect_to admin_movies_url, notice: 'Created movie success'
-    else
-      render :new
+    # GET /admin/movies
+    def index
+      @movies = Movie.all
     end
-  end
 
-  # GET /admin/movie/1/edit
-  def edit; end
-
-  # PUT/PATCH /admin/movie/1
-  def update
-    if @movie.update(movie_params)
-      redirect_to admin_movies_url, notice: 'Update movie success'
-    else
-      render :edit
+    # GET /admin/movies/new
+    def new
+      @movie = Movie.new
     end
-  end
 
-  # DELETE /admin/movie/1
-  def destroy
-    @movie.destroy
-    redirect_to :back, notice: ''
-  end
+    # POST /admin/movies
+    def create
+      @movie = Movie.new(movie_params)
+      if @movie.save
+        redirect_to admin_movies_url, notice: 'Create movie success'
+      else
+        render :new
+      end
+    end
 
-  protected
-  
-  def set_movie
-    @movie = Movie.find(params[:id])
-  end
+    # GET /admin/movie/1/edit
+    def edit; end
 
-  def movie_params
-    params.require(:movie).permit(:title, :describe, :published)
+    # PUT/PATCH /admin/movie/1
+    def update
+      if @movie.update(movie_params)
+        redirect_to admin_movies_url, notice: 'Update movie success'
+      else
+        render :edit
+      end
+    end
+
+    # DELETE /admin/movie/1
+    def destroy
+      @movie.destroy
+      redirect_to :back, notice: 'Destroy movie success'
+    end
+
+    protected
+    
+    def set_movie
+      @movie = Movie.find(params[:id])
+    end
+
+    def movie_params
+      params.require(:movie).permit(:title, :describe, :published)
+    end
   end
 end
