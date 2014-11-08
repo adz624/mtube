@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    = render_page_title_tag
+    = render_page_description_meta_tag
+    = render_page_keywords_meta_tag
+    %script{src: '//js.pusher.com/2.2/pusher.min.js'}
+    = stylesheet_link_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    = render 'common/header'
+    .container
+      .push-xs
+      = notice_message
+      = render_breadcrumb unless current_page?(root_path)
+      = yield
+    = yield :javascripts
