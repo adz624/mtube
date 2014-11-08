@@ -1,0 +1,3 @@
+<% if @movies.present? %>
+  $('#movies_box').html('<%=j render @movies %>').data('currentPage', '<%= @movies.current_page %>')
+<% end %>
