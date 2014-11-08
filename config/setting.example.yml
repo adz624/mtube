@@ -1,0 +1,11 @@
+defaults: &defaults
+  title: 'Mtube'
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
