@@ -1,9 +1,0 @@
-<%= div_for(movie, class: 'col-md-3') do %>
-  <%= link_to(movie_path(movie), class: 'thumbnail') do %>
-    <%= image_tag(movie.image.url(:thumb)) %>
-    <h4><%= movie.title %></h4>
-    <p><%= truncate(movie.describe, length: 100) %></p>
-    <%= link_to("Like #{movie.likes}", movie_like_path(movie), method: :post, class: 'btn btn-default btn-xs') %>
-    <%= link_to("Unlike #{movie.likes}", movie_like_path(movie), method: :delete, class: 'btn btn-default btn-xs') %>
-  <% end %>
-<% end %>

@@ -1,0 +1,23 @@
+= link_to('Add a new movie', new_admin_movie_path, class: 'btn btn-info')
+%hr/
+%table.table
+  %tr
+    %td Title
+    %td Describe
+    %td Published
+    %td{:width => "200"} Actions
+  - if @movies.empty?
+    %tr
+      %td{:colspan => "3"} No Data!
+  - @movies.each do |movie|
+    %tr
+      %td= movie.title
+      %td= movie.describe
+      %td
+        - if movie.published?
+          yes
+        - else
+          no
+      %td
+        = link_to('Edit', like_movie_path(movie), class: 'btn btn-default')
+        = link_to('Delete', like_movie_path(movie), method: :delete, class: 'btn btn-danger')
