@@ -13,6 +13,8 @@ gem 'spring',        group: :development
 
 gem 'bootstrap-sass-rails'
 gem 'bootstrap_form'
+gem 'jquery-hotkeys-rails'
+gem 'will_paginate'
 
 # Image uploader
 gem 'carrierwave'
