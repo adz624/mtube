@@ -19,7 +19,12 @@ gem 'will_paginate'
 # Image uploader
 gem 'carrierwave'
 gem 'mini_magick'
-
+gem 'devise'
+gem "bootstrap_helper", github: 'afunction/bootstrap-helper'
+gem 'font-awesome-rails'
+gem 'seo_helper', '~> 1.0.2'
+gem 'settingslogic'
+gem 'haml'
 
 # 所有環境都綁，包含 production
 gem "pry-rails"
